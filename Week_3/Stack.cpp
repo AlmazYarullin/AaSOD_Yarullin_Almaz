@@ -3,21 +3,21 @@
 using namespace std;
 
 
-struct Cell
+struct Node
 {
     int item;
-    Cell * next;
+    Node * next = NULL;
 };
 
 struct Stack
 {
-    Cell * pHead;
+    Node * pHead = NULL;
 
     void Push(int a) {
-        Cell * cell = new Cell;
-        cell->item = a;
-        cell->next = pHead;
-        pHead = cell;
+        Node * node = new Node;
+        node->item = a;
+        node->next = pHead;
+        pHead = node;
     }
 
     int Pop() {
@@ -25,11 +25,25 @@ struct Stack
             throw 1;
         }
         else {
-            Cell * temp = pHead;
+            Node * temp = pHead;
             pHead = temp->next;
             int x = temp->item;
             delete temp;
             return x;
+        }
+    }
+
+    void findAll() {
+        if (pHead == NULL) {
+            cout << "Stack is empty.";
+        }
+        else {
+            Node * pNow = pHead;
+            while (pNow->next != NULL) {
+                cout << pNow->item << " ";
+                pNow = pNow->next;
+            }
+            cout << pNow->item;
         }
     }
 
@@ -49,7 +63,9 @@ int main() {
 
     stack->Push(3);
 
-    cout << stack->Pop();
+    cout << stack->Pop() << endl;
+
+    stack->findAll();
 
     return 0;
 }
