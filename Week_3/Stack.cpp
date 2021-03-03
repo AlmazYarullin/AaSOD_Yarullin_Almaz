@@ -33,7 +33,7 @@ struct Stack
         }
     }
 
-    void findAll() {
+    void printAll() {
         if (pHead == NULL) {
             cout << "Stack is empty.";
         }
@@ -53,19 +53,19 @@ struct Stack
 
 
 int main() {
-    Stack * stack = new Stack;
+    // Stack * stack = new Stack;
 
-    stack->Push(1);
-    stack->Push(2);
-    stack->Push(5);
+    // stack->Push(1);
+    // stack->Push(2);
+    // stack->Push(5);
 
-    cout << stack->Pop();
+    // cout << stack->Pop();
 
-    stack->Push(3);
+    // stack->Push(3);
 
-    cout << stack->Pop() << endl;
+    // cout << stack->Pop() << endl;
 
-    stack->findAll();
+    // stack->findAll();
 
     return 0;
 }
